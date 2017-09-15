@@ -14,7 +14,17 @@ module FunWithStrings
     
   end
   def anagram_groups
-    # your code here
+    words = self.downcase.split(' ')
+    hash = Hash.new([])
+    words.each { |word|
+      sortedWord = word.chars.sort.join
+      hash[sortedWord] += [word]
+    }
+    result = []
+    hash.each { |k, v|
+      result += [v]
+    }
+    return result
   end
 end
 
